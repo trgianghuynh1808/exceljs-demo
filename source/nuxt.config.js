@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: "%s - exceljs-demo",
+    titleTemplate: "%s",
     title: "exceljs-demo",
     htmlAttrs: {
       lang: "en"

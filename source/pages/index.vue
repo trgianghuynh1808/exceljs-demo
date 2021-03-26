@@ -1,18 +1,6 @@
 <template>
   <div>
-    <h2>Demo exceljs</h2>
-    <v-btn depressed color="success">
-      Import
-      <v-icon right dark>
-        mdi-file-import
-      </v-icon>
-    </v-btn>
-    <v-btn class="ml-3" depressed color="primary">
-      Export
-      <v-icon right dark>
-        mdi-file-export
-      </v-icon>
-    </v-btn>
+    <h2>Demo Exceljs</h2>
     <SheetTable />
   </div>
 </template>
