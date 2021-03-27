@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UploadFileButton :handleUploadFile="handleUploadFile" />
+    <UploadFileButton :handleUploadFile="importFile" />
     <v-btn class="ml-3" depressed color="primary" @click="exportFile">
       Export
       <v-icon right dark>
@@ -77,13 +77,18 @@ export default {
       });
       sheet.addRows(this.data);
 
+      sheet.getCell("D2").dataValidation = {
+        type: "list",
+        formulae: ['"Good,Normal,Bad"']
+      };
+
       const buffer = await workbook.xlsx.writeBuffer();
 
       if (!buffer) return console.log("Error!");
 
       await FileSaver.saveAs(new Blob([buffer]), `out-${Date.now()}.xlsx`);
     },
-    handleUploadFile(selectedFile) {
+    importFile(selectedFile) {
       const workbook = new ExcelJS.Workbook();
       const reader = new FileReader();
 
